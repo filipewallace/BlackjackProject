@@ -1,15 +1,21 @@
 package com.skilldistillery.blackjack.cards;
 
 public enum Suit {
-  HEARTS("Hearts"), SPADES("Spades"), CLUBS("Clubs"), DIAMONDS("Diamonds");
-  private String name;
+	HEARTS("Hearts"), SPADES("Spades"), CLUBS("Clubs"), DIAMONDS("Diamonds");
 
-  Suit(String name) {
-    this.name = name;
-  }
+	Suit(String suit) {
+		name = suit;
+	}
 
-  @Override
-  public String toString() {
-    return name;
-  }
+	final private String name;
+
+	@Override
+	public String toString() {
+		return name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
 }

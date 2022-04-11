@@ -5,32 +5,28 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
-  private List<Card> cards;
+	List<Card> cardDeck;
 
-  public Deck() {
-    cards = createDeck();
-  }
-  
-  private List<Card> createDeck(){
-    List<Card> deck = new ArrayList<>(52);
-    for(Suit s : Suit.values()) {
-      for(Rank r : Rank.values()) {
-        deck.add(new Card(r, s));
-      }
-    }
-    return deck;
-  }
-  
-  public int checkDeckSize() {
-    return cards.size();
-  }
-  
-  public void shuffle() {
-    Collections.shuffle(cards);
-  }
-  
-  public Card dealCard() {
-    return cards.remove(0);
-  }
-  
+	public Deck() {
+
+		cardDeck = new ArrayList<>(52);
+		for (Rank r : Rank.values()) {
+			for (Suit s : Suit.values()) {
+				Card nextCard = new Card(s, r);
+				cardDeck.add(nextCard);
+			}
+		}
+	}
+
+	public int checkDeckSize() {
+		return this.cardDeck.size();
+	}
+
+	public Card dealCard() {
+		return this.cardDeck.remove(0);
+	}
+
+	public void shuffle() {
+		Collections.shuffle(this.cardDeck);
+	}
 }
